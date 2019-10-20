@@ -49,6 +49,32 @@ export class CompensationDay extends Component {
             console.log(error.response)
         });
     }  
+
+
+    handleDisable=(event)=>{
+        const data={
+            id: event.target.value
+        }
+        const {id}=data;
+        const vac=this.state.compensationDay.filter(function (params) {
+            if(params.id !== parseInt(id)) return params;
+            return null;
+        })
+        const headers={
+            Authorization: 'Bearer '+localStorage.getItem('token')
+        }
+        //Get data from database
+        axios.post('http://localhost:8080/api/compensationday/disable',data,{
+            headers:headers
+        })
+        .then(response => { 
+            console.log(vac);
+            this.setState({compensationDay:vac});
+        })
+        .catch(error => {
+            console.log(error.response)
+        });
+    } 
       
     render() {
         const compensationDay=this.state.compensationDay;
@@ -56,7 +82,7 @@ export class CompensationDay extends Component {
             <div className="admin_panel">
                 <NavBar user={this.props.users}/>
                 <div className="container">
-                    <h3 className="mt-3">Daysoff  Requests</h3>
+                    <h3 className="mt-3">Compensation Day Requests</h3>
                     <hr style={{backgroundColor: "#fff"}}/>
                     <table className="table mt-2" >
                             <thead>
@@ -76,10 +102,17 @@ export class CompensationDay extends Component {
                                         <td>{value.title}</td>
                                         <td>{value.compensation_day}</td>
                                         <td>
-                                            <button className="btn btn-danger"
+                                            <button className="btn btn-success"
                                              value={value.id}
                                              onClick={this.handleEnable}>
                                                  Enable
+                                            </button>
+                                        </td>
+                                        <td>
+                                            <button className="btn btn-danger"
+                                             value={value.id}
+                                             onClick={this.handleDisable}>
+                                                 Disable
                                             </button>
                                         </td>
                                     </tr>

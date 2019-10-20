@@ -29,7 +29,6 @@ export class Home extends Component {
         .catch(error => {
             console.log(error.response)
         });
-     
     }
 
      handleDelete = (entity,id)=>{
@@ -45,6 +44,8 @@ export class Home extends Component {
         });
      
     }
+
+
 
     render() {
         const {Vacations,DaysOff,CompensationDay}=this.state.data;
@@ -68,7 +69,7 @@ export class Home extends Component {
                                 </thead>
                                 <tbody>
                                     {CompensationDay.map((value, index) =>
-                                        <tr key={index} className={value.enable? "true":"false"}>
+                                        <tr key={index} className={value.enable? "true":"" || value.disable? "false":"" || value.waiting? "waiting":""}>
                                         <th scope="row">{value.id}</th>
                                         <td>{value.title}</td>
                                         <td>{value.compensation_day}</td>
@@ -93,7 +94,7 @@ export class Home extends Component {
                                 </thead>
                                 <tbody>
                                     {DaysOff.map((value, index) =>
-                                        <tr key={index} className={value.enable? "true":"false"}>
+                                        <tr key={index} className={value.enable? "true":"" || value.disable? "false":"" || value.waiting? "waiting":""}>
                                         <th scope="row">{value.id}</th>
                                         <td>{value.title}</td>
                                         <td>{value.dayOff}</td>
@@ -119,7 +120,7 @@ export class Home extends Component {
                                 </thead>
                                 <tbody>
                                     {Vacations.map((value, index) =>
-                                        <tr key={index} className={value.enable? "true":"false"}>
+                                        <tr key={index} className={value.enable? "true":"" || value.disable? "false":"" || value.waiting? "waiting":""}>
                                         <th scope="row">{value.id}</th>
                                         <td>{value.title}</td>
                                         <td>{value.start_date}</td>

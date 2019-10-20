@@ -4,13 +4,12 @@ import NavBar from './NavBar';
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
 
-
-
 export class AddVacations extends Component {
     state={
             start_date: new Date(),
             end_date:'',
             title:'',
+            waiting:true,
             success:''
     }
 

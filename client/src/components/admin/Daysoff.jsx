@@ -50,6 +50,30 @@ export class Daysoff extends Component {
             console.log(error.response)
         });
     }  
+    handleDisable=(event)=>{
+        const data={
+            id: event.target.value
+        }
+        const {id}=data;
+        const vac=this.state.daysoff.filter(function (params) {
+            if(params.id !== parseInt(id)) return params;
+            return null;
+        })
+        const headers={
+            Authorization: 'Bearer '+localStorage.getItem('token')
+        }
+        //Get data from database
+        axios.post('http://localhost:8080/api/daysoff/disable',data,{
+            headers:headers
+        })
+        .then(response => { 
+            console.log(vac);
+            this.setState({daysoff:vac});
+        })
+        .catch(error => {
+            console.log(error.response)
+        });
+    }
       
     render() {
         const daysoff=this.state.daysoff;
@@ -79,10 +103,17 @@ export class Daysoff extends Component {
                                         <td>{value.dayOff}</td>
                                         <td>{value.description}</td>
                                         <td>
-                                            <button className="btn btn-danger"
+                                            <button className="btn btn-success"
                                              value={value.id}
                                              onClick={this.handleEnable}>
                                                  Enable
+                                            </button>
+                                        </td>
+                                        <td>
+                                            <button className="btn btn-danger"
+                                             value={value.id}
+                                             onClick={this.handleDisable}>
+                                                 Disable
                                             </button>
                                         </td>
                                     </tr>
