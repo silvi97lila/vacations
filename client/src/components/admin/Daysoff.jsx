@@ -92,6 +92,7 @@ export class Daysoff extends Component {
                                 <th scope="col">Day Off</th>
                                 <th scope="col">Description</th>  
                                 <th scope="col">Enable</th> 
+                                <th scope="col">Disable</th> 
                                 </tr>
                             </thead>
                             <tbody>

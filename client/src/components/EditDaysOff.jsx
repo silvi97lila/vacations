@@ -21,6 +21,9 @@ export class EditDaysOff extends Component {
     handleChange=(e)=>{
         const data={...this.state.data};
         data[e.target.name]=e.target.value;
+        data['enable']=false;
+        data['waiting']=true;
+        data['disable']=false;
         this.setState({data});
     }
 

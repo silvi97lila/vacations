@@ -59,14 +59,21 @@ button.login {
 
 ul.navbar-nav.flex-column {
   background: #fff;
-  padding: 15px;
   border-radius: 7px;
   font-size: 19px;
   line-height: 2;
   font-weight: bold;
 }
+.nv.active {
+  background: #282c34;
+  color: #fff;
+}
 a.nav-link {
   color: #424040;
+  line-height: 1.5;
+}
+a.nav-link p{
+  padding-left: 10px;
 }
 
 /* Vacations Form styles */

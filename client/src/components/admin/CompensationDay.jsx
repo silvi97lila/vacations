@@ -92,6 +92,7 @@ export class CompensationDay extends Component {
                                 <th scope="col">Title</th>
                                 <th scope="col">Compensation Day</th>
                                 <th scope="col">Enable</th> 
+                                <th scope="col">Disable</th> 
                                 </tr>
                             </thead>
                             <tbody>

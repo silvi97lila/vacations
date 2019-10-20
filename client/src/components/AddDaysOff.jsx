@@ -9,6 +9,7 @@ export class AddDaysOff extends Component {
         title:'',
         dayOff:new Date(),
         description:'',
+        waiting:1,
         success:''
     }
 
@@ -49,11 +50,12 @@ export class AddDaysOff extends Component {
         return (
             <div className="daysoff">
                 <div className="container">
-                    <h3>Request Days Off</h3>
+                    <h3>Days Off</h3>
                     <hr/>
                     <div className="row">
                         <NavBar/>
                         <div className="daysoff-form col-md-8">
+                        <h3><b>Request Days Off</b></h3><hr/>
                             {message}
                             <form onSubmit={this.handleSubmit}>
                                 <div className="form-group">
@@ -69,7 +71,8 @@ export class AddDaysOff extends Component {
                                     <label >Start Date</label><br/>
                                 <DatePicker onChange={this.handleChange1}
                                     selected={this.state.dayOff} 
-                                    name="startDate"/>
+                                    name="startDate"
+                                    className="form-control"/>
                                 </div>
                                 <div className="form-group">
                                     <label >Description</label><br/>

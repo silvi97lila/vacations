@@ -64,7 +64,7 @@ export class Home extends Component {
                                 <th scope="col">#</th>
                                     <th scope="col">Title</th>
                                     <th scope="col">Compensation Day</th>
-                                    <th scope="col">Edit / Delete</th>
+                                    <th scope="col"  style={{textAlign:"center"}}>Edit / Delete</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -89,7 +89,7 @@ export class Home extends Component {
                                     <th scope="col">Title</th>
                                     <th scope="col">Day Offs</th>
                                     <th scope="col">Description</th>
-                                    <th scope="col">Edit / Delete</th>
+                                    <th scope="col" style={{textAlign:"center"}}>Edit / Delete</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -115,7 +115,7 @@ export class Home extends Component {
                                     <th scope="col">Title</th>
                                     <th scope="col">Start Date</th>
                                     <th scope="col">End Date</th>
-                                    <th scope="col">Edit / Delete</th>
+                                    <th scope="col"  style={{textAlign:"center"}}>Edit / Delete</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -126,7 +126,7 @@ export class Home extends Component {
                                         <td>{value.start_date}</td>
                                         <td>{value.end_date}</td>
                                         <td className="edit-del">
-                                        <NavLink to={`/home/edit-vacations/${value.id}`}><FaEdit className="edit"/></NavLink>
+                                        <NavLink to={`/home/edit-vacations/${value.id}`} disable="true"><FaEdit className="edit"/></NavLink>
                                         <FaTrashAlt className="delete" onClick={()=> this.handleDelete("vacation",value.id)} />
                                         </td>
                                     </tr>

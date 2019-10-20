@@ -20,6 +20,9 @@ export class EditCompensationDay extends Component {
     handleChange=(e)=>{
         const data={...this.state.data};
         data[e.target.name]=e.target.value;
+        data['enable']=false;
+        data['waiting']=true;
+        data['disable']=false;
         this.setState({data});
     }
 
@@ -52,7 +55,8 @@ export class EditCompensationDay extends Component {
                                 </div>
                                 <div className="form-group">
                                     <label >Compensation Day</label><br/>
-                                    <select value={this.state.data.compensation_day} onChange={this.handleChange} name="compensation_day">
+                                    <select value={this.state.data.compensation_day} onChange={this.handleChange} name="compensation_day"
+                                     className="form-control">
                                         {this.state.monthDays.map((value, index) =>
                                                <option value={value} key={index}>{value}</option>
                                             )}

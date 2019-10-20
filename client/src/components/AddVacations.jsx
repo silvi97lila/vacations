@@ -7,7 +7,7 @@ import "react-datepicker/dist/react-datepicker.css";
 export class AddVacations extends Component {
     state={
             start_date: new Date(),
-            end_date:'',
+            end_date:new Date(),
             title:'',
             waiting:true,
             success:''
@@ -55,11 +55,12 @@ export class AddVacations extends Component {
         return (
             <div className="vacation">
                 <div className="container">
-                    <h3>Request Vacations</h3>
+                    <h3>Vacations</h3>
                     <hr/>
                     <div className="row">
                         <NavBar/>
                         <div className="vacation-form col-md-8">
+                            <h3><b>Request Vacation</b></h3><hr/>
                             {message}
                         <form onSubmit={this.handleSubmit}>
                             <div className="form-group">
@@ -75,13 +76,15 @@ export class AddVacations extends Component {
                                 <label >Start Date</label><br/>
                                <DatePicker onChange={this.handleChange1}
                                 selected={this.state.start_date} 
-                                name="startDate"/>
+                                name="startDate"
+                                className="form-control"/>
                             </div>
                             <div className="form-group">
                                 <label >End Date</label><br/>
                                 <DatePicker onChange={this.handleChange2} 
                                 selected={this.state.end_date}
-                                name="endDate" />
+                                name="endDate" 
+                                className="form-control"/>
                             </div>
                             <button type="submit" className="btn btn-primary">Submit</button>
                             </form>

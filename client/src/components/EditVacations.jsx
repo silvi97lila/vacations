@@ -19,6 +19,8 @@ export class EditVacations extends Component {
     handleChange=(e)=>{
         const data={...this.state.data};
         data[e.target.name]=e.target.value;
+        data['enable']=false;
+        data['waiting']=true;
         this.setState({data});
     }
 
@@ -53,13 +55,15 @@ export class EditVacations extends Component {
                             <label >Start Date</label><br/>
                            <input onChange={this.handleChange}
                             value={this.state.data.start_date} 
-                            name="start_date"/>
+                            name="start_date"
+                            className="form-control"/>
                         </div>
                         <div className="form-group">
                             <label >End Date</label><br/>
                             <input onChange={this.handleChange} 
                             value={this.state.data.end_date}
-                            name="end_date" />
+                            name="end_date" 
+                            className="form-control"/>
                         </div>
                         <button type="submit" className="btn btn-primary">Submit</button>
                         </form>
