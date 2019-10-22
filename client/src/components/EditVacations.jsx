@@ -21,6 +21,7 @@ export class EditVacations extends Component {
         data[e.target.name]=e.target.value;
         data['enable']=false;
         data['waiting']=true;
+        data['disable']=false;
         this.setState({data});
     }
 

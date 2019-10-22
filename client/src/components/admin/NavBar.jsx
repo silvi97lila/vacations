@@ -24,7 +24,11 @@ const NavBar=()=>{
                     <NavLink to="/admin/register" className="nav-link"> <b> Register New User</b></NavLink>
                 </li>
                 <li className="nav-item">
-                    <NavLink to="/logout" className="nav-link"><b> Logout</b></NavLink>
+                    <NavLink to="/logout" className="nav-link">
+                        <b>
+                             Logout
+                        </b>
+                    </NavLink>
                 </li>
             </ul>
         </div>

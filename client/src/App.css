@@ -56,13 +56,13 @@ button.login {
     margin-top: 21px;
 }
 
-
 ul.navbar-nav.flex-column {
-  background: #fff;
-  border-radius: 7px;
+  background: #eceff3;
+  border-radius: 2px;
   font-size: 19px;
   line-height: 2;
   font-weight: bold;
+  border: 1px solid #3f99f7;
 }
 .nv.active {
   background: #282c34;

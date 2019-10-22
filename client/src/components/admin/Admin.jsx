@@ -1,13 +1,17 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import NavBar from './NavBar';
+import {FaTrashAlt} from 'react-icons/fa';
 
 export class Admin extends Component {
 
     state={
         vacations:[],
         users:{},
-        err:''
+        err:'',
+        headers:{
+            Authorization: 'Bearer '+localStorage.getItem('token')
+        }
     }
     componentDidMount() {
         const headers={
@@ -18,6 +22,7 @@ export class Admin extends Component {
         })
         .then(response => { 
             this.setState({vacations:response.data});
+            console.log(response.data);
         })
         .catch(error => {
             console.log(error.response)
@@ -73,6 +78,13 @@ export class Admin extends Component {
         });
     }
 
+    handleDelete=(id)=>{
+        const vacations=this.state.vacations.filter(v=>v.id !== id);
+        axios.delete('http://localhost:8080/api/vacation/'+id,{
+            headers:this.state.headers
+        }).then(response => this.setState({vacations}));
+    }
+
       
     render() {
         const vacations=this.state.vacations;
@@ -115,6 +127,9 @@ export class Admin extends Component {
                                                 onClick={this.handleDisable}>
                                                     Disable
                                             </button>
+                                        </td>
+                                        <td>
+                                            <FaTrashAlt onClick={()=>this.handleDelete(value.id)}/>
                                         </td>
                                     </tr>
                                 )}
