@@ -1,10 +1,20 @@
 import React from 'react';
 import {NavLink} from 'react-router-dom';
+import {getUser} from '../services/users';
+import {FaPortrait} from 'react-icons/fa';
 
 const NavBar=()=>{
+    const user=getUser();
     return(
         <div className="home-nav col-md-4">
             <ul className="navbar-nav flex-column ">
+                <li className="nav-item">
+                        <h3 style={{color:"#000"}}>
+                            <FaPortrait/>
+                            <b>{user}</b>
+                        </h3>
+                <hr style={{backgroundColor:"#000"}}/>
+                </li>
                 <li className="nav-item">
                     <NavLink exact to="/home" className="nav-link nv" activeclassname="active">
                         <p>

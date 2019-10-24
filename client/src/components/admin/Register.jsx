@@ -8,8 +8,10 @@ export class Register extends Component {
             fullName:'',
             username:'',
             password:'',
-            role:''
-        }
+            role:'',
+        },
+        success:""
+
     }
 
     handleChange = (e) =>{
@@ -28,18 +30,26 @@ export class Register extends Component {
                 fullName:'',
                 username:'',
                 password:'',
-                role:''
+                role:'',
+                success:"The data was inserted successfully."
             })
         });
     }
 
     render() {
+        const {success}=this.state;
+        let message= "";
+        if(success !== "") {
+            message = <div className="alert alert-success">{success}</div>;
+        }
         return (
             <div className="register-section">
                 <Navbar/>
                 <div className="container">
+                    
                 <form className="register-form" onSubmit={this.handleSubmit}>
                     <h3>Register new User</h3>
+                    {message}
                     <div className="form-group">
                         <label >Full Name</label>
                         <input type="text"

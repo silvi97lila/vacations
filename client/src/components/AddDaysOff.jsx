@@ -50,7 +50,7 @@ export class AddDaysOff extends Component {
         return (
             <div className="daysoff">
                 <div className="container">
-                    <h3>Days Off</h3>
+                    <h3 className="page-title">Days Off</h3>
                     <hr/>
                     <div className="row">
                         <NavBar/>

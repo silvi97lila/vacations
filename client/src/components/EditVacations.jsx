@@ -37,11 +37,13 @@ export class EditVacations extends Component {
         return (
             <div className="vacation">
             <div className="container">
-                <h3>Request Vacations</h3>
+                <h3 className="page-title">Request Vacations</h3>
                 <hr/>
                 <div className="row">
                     <NavBar/>
                     <div className="vacation-form col-md-8">
+                    <h3 className="page-title"><b>Edit Vacations</b></h3>
+                    <hr/>
                     <form onSubmit={this.handleSubmit}>
                         <div className="form-group">
                             <label>Title</label>

@@ -40,12 +40,13 @@ export class EditDaysOff extends Component {
         return (
             <div className="daysoff">
             <div className="container">
-                <h3>Request Days Off</h3>
+                <h3 className="page-title">Request Days Off</h3>
                 <hr/>
                 <div className="row">
                     <NavBar/>
-
                     <div className="daysoff-form col-md-8">
+                    <h3 className="page-title"><b>Edit Days Off</b></h3>
+                    <hr/>
                         <form onSubmit={this.handleSubmit}>
                             <div className="form-group">
                                 <label>Title</label>

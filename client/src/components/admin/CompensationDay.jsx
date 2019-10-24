@@ -1,13 +1,18 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import NavBar from './NavBar';
+import {FaTrashAlt} from 'react-icons/fa';
+
 
 export class CompensationDay extends Component {
 
     state={
         compensationDay:[],
         users:{},
-        err:''
+        err:'',
+        headers:{
+            Authorization: 'Bearer '+localStorage.getItem('token')
+        }
     }
     componentDidMount() {
         const headers={
@@ -75,6 +80,13 @@ export class CompensationDay extends Component {
             console.log(error.response)
         });
     } 
+    handleDelete=(id)=>{
+        const compensationDay=this.state.compensationDay.filter(v=>v.id !== id);
+        axios.delete('http://localhost:8080/api/compensationday/'+id,{
+            headers:this.state.headers
+        }).then(response => this.setState({compensationDay}));
+    }
+
       
     render() {
         const compensationDay=this.state.compensationDay;
@@ -115,6 +127,9 @@ export class CompensationDay extends Component {
                                              onClick={this.handleDisable}>
                                                  Disable
                                             </button>
+                                        </td>
+                                        <td>
+                                            <FaTrashAlt onClick={()=>this.handleDelete(value.id)} style={{cursor:"pointer"}}/>
                                         </td>
                                     </tr>
                                 )}

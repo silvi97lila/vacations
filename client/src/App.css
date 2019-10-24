@@ -13,6 +13,9 @@ hr{
 .App-link {
   color: #09d3ac;
 }
+.page-title{
+  padding-top: 15px;;
+}
 button.login {
   padding: 25px;
   width: 300px;
@@ -67,6 +70,7 @@ ul.navbar-nav.flex-column {
 .nv.active {
   background: #282c34;
   color: #fff;
+  border-bottom: 2px solid #2357bf;
 }
 a.nav-link {
   color: #424040;

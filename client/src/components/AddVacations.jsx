@@ -55,7 +55,7 @@ export class AddVacations extends Component {
         return (
             <div className="vacation">
                 <div className="container">
-                    <h3>Vacations</h3>
+                    <h3 className="page-title">Vacations</h3>
                     <hr/>
                     <div className="row">
                         <NavBar/>

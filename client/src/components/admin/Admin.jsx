@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import NavBar from './NavBar';
 import {FaTrashAlt} from 'react-icons/fa';
-
 export class Admin extends Component {
 
     state={
@@ -22,7 +21,6 @@ export class Admin extends Component {
         })
         .then(response => { 
             this.setState({vacations:response.data});
-            console.log(response.data);
         })
         .catch(error => {
             console.log(error.response)
@@ -46,7 +44,6 @@ export class Admin extends Component {
             headers:headers
         })
         .then(response => { 
-            console.log(vac);
             this.setState({vacations:vac});
         })
         .catch(error => {
@@ -70,7 +67,6 @@ export class Admin extends Component {
             headers:headers
         })
         .then(response => { 
-            console.log(vac);
             this.setState({vacations:vac});
         })
         .catch(error => {
@@ -129,7 +125,7 @@ export class Admin extends Component {
                                             </button>
                                         </td>
                                         <td>
-                                            <FaTrashAlt onClick={()=>this.handleDelete(value.id)}/>
+                                            <FaTrashAlt onClick={()=>this.handleDelete(value.id)} style={{cursor:"pointer"}}/>
                                         </td>
                                     </tr>
                                 )}

@@ -52,7 +52,7 @@ export class Home extends Component {
         return (
             <div className="home">
                 <div className="container">
-                <h3 >Show Enable Proposals List</h3>
+                <h3 className="page-title">Show Enable Proposals List</h3>
                 <hr/>
                 <div className="row">
                 <NavBar />

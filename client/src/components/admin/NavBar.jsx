@@ -1,13 +1,20 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import {getUser} from '../../services/users';
+import {FaPortrait} from 'react-icons/fa';
+
 
 const NavBar=()=>{
+    const user=getUser();
     return(
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <div className="collapse navbar-collapse" >
             <ul className="navbar-nav">
                 <li className="nav-item">
-                    <h2>Admin Panel</h2>
+                    <h3 style={{color:"#000"}}>
+                    <FaPortrait/>
+                    <b >{user}</b>
+                    </h3>
                 </li>
                 <li className="nav-item">
                 <NavLink exact to="/admin" className="nav-link">

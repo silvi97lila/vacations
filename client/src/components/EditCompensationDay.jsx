@@ -38,11 +38,13 @@ export class EditCompensationDay extends Component {
         return (
         <div className="compensationDay">
                 <div className="container">
-                    <h3>Edit Compensation Day</h3>
+                    <h3 className="page-title">Compensation Day</h3>
                     <hr/>
                     <div className="row">
                         <NavBar/>
                         <div className="compensation-form col-md-8">
+                        <h3 className="page-title"><b>Edit Compensation Day</b></h3>
+                        <hr/>
                         <form onSubmit={this.handleSubmit}>
                                 <div className="form-group">
                                     <label>Title</label>

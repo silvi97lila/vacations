@@ -8,7 +8,8 @@ export class AddCompensationDay extends Component {
         title:'',
         compensation_day: 0,
         waiting:1,
-        monthDays:[ 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30]
+        monthDays:[ 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30],
+        success:""
     }
     handleChange=(e)=>{
         const title=e.target.value;
@@ -30,20 +31,27 @@ export class AddCompensationDay extends Component {
             console.log(response);
             this.setState({
                 title:'',
-                compensation_day:0
+                compensation_day:0,
+                success:"The data was inserted successfully."
             })
         });
     }
     render() {
+        const {success}=this.state;
+        let message= "";
+        if(success !== "") {
+            message = <div className="alert alert-success">{success}</div>;
+        }
         return (
             <div className="compensationDay">
                 <div className="container">
-                    <h3>Compensation Day</h3>
+                    <h3 className="page-title">Compensation Day</h3>
                     <hr/>
                     <div className="row">
                         <NavBar/>
                         <div className="compensation-form col-md-8">
                         <h3><b>Request Compensation Day</b></h3><hr/>
+                        {message}
                         <form onSubmit={this.handleSubmit}>
                                 <div className="form-group">
                                     <label>Title</label>
